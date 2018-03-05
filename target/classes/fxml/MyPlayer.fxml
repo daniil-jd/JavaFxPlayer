@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<AnchorPane prefHeight="254.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.controllers.MyPlayerController">
+   <children>
+      <Button layoutX="22.0" layoutY="115.0" mnemonicParsing="false">
+         <graphic>
+            <FontAwesomeIconView glyphName="BACKWARD" />
+         </graphic></Button>
+      <Button layoutX="348.0" layoutY="115.0" mnemonicParsing="false">
+         <graphic>
+            <FontAwesomeIconView glyphName="FORWARD" />
+         </graphic></Button>
+      <JFXToggleButton layoutX="120.0" layoutY="166.0" />
+      <JFXButton layoutX="166.0" layoutY="71.0" text="Play">
+         <graphic>
+            <FontAwesomeIconView glyphName="PLAY" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

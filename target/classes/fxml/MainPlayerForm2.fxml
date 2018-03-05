@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="960.0" stylesheets="@../css/Trackio.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.controllers.PlayerControllerNext">
+    <children>
+        <AnchorPane fx:id="toolBarPane" layoutX="14.0" layoutY="14.0" maxHeight="49.0" minHeight="49.0" prefHeight="49.0" prefWidth="168.0" styleClass="background" stylesheets="@../css/Trackio.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <MenuBar layoutY="23.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="20.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#menuFileAdd" text="Add File" />
+                                <MenuItem mnemonicParsing="false" onAction="#menuClose" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handlerGuide" text="Guide" />
+                        <MenuItem mnemonicParsing="false" onAction="#handlerAbout" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <Label alignment="TOP_CENTER" layoutX="466.0" layoutY="6.0" text="Audio Player" textAlignment="CENTER" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0" />
+                <Button layoutX="901.0" layoutY="2.0" maxWidth="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#handleClose" styleClass="button-toolbar" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="18.0" />
+                    </graphic>
+                </Button>
+                <Button layoutX="882.0" layoutY="5.0" maxWidth="32.0" minWidth="32.0" mnemonicParsing="false" onAction="#handleMaximize" prefWidth="32.0" styleClass="button-toolbar" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="SQUARE" size="14.0" />
+                    </graphic>
+                </Button>
+                <Button layoutX="844.0" layoutY="2.0" maxWidth="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#handleMinimize" prefWidth="31.0" styleClass="button-toolbar" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="14.0" styleClass="button-toolbar" />
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+        <SplitPane dividerPositions="0.29797979797979796" layoutX="380.0" layoutY="160.0" prefHeight="422.0" prefWidth="960.0" styleClass="background-player" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0">
+            <items>
+                <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="-Infinity" prefHeight="160.0" prefWidth="284.0">
+                    <children>
+                        <SplitPane dividerPositions="0.45" layoutX="62.0" layoutY="288.0" orientation="VERTICAL" prefHeight="446.0" prefWidth="284.0" style="-fx-background-color: #666666;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="215.0" prefWidth="284.0" styleClass="background">
+                                    <children>
+                                        <ListView fx:id="listView" layoutY="6.0" opacity="0.87" prefHeight="204.0" prefWidth="284.0" styleClass="lview" stylesheets="@../css/Trackio.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0" />
+
+                                    </children></AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="284.0" styleClass="background" SplitPane.resizableWithParent="false">
+                                    <children>
+                                        <ImageView fx:id="albumImageView" fitHeight="114.0" fitWidth="102.0" layoutX="91.0" layoutY="14.0" nodeOrientation="INHERIT" opacity="0.63" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="91.0">
+                                            <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                            </cursor>
+                                            <effect>
+                                                <Reflection fraction="0.62" topOpacity="0.39" />
+                                            </effect>
+                                            <image>
+                                                <Image url="@../img/noalbumart.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fx:id="albumImageViewLeft" fitHeight="86.0" fitWidth="86.0" layoutX="-22.0" layoutY="30.0" opacity="0.63" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-22.0">
+                                            <effect>
+                                                <Reflection fraction="0.62" topOpacity="0.39" />
+                                            </effect>
+                                            <image>
+                                                <Image url="@../img/noalbumart.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fx:id="albumImageViewRight" fitHeight="86.0" fitWidth="86.0" layoutX="204.0" layoutY="30.0" opacity="0.63" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="-22.0">
+                                            <effect>
+                                                <Reflection fraction="0.62" topOpacity="0.39" />
+                                            </effect>
+                                            <image>
+                                                <Image url="@../img/noalbumart.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label fx:id="artist" alignment="CENTER" layoutX="25.0" layoutY="126.0" prefHeight="21.0" prefWidth="192.0" styleClass="label-title" text="Artist Info" textAlignment="CENTER" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+                                        <Label fx:id="trackInfo" alignment="CENTER" layoutX="20.0" layoutY="155.0" prefHeight="21.0" prefWidth="200.0" text="Track Info" textAlignment="CENTER" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                                        <ProgressBar fx:id="progressBar" layoutX="42.0" layoutY="181.0" minHeight="6.0" prefHeight="6.0" prefWidth="200.0" progress="0.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="42.0" />
+                                        <Slider fx:id="slider" layoutX="39.0" layoutY="191.0" max="100.0" prefHeight="6.0" prefWidth="206.0" value="100.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="39.0" />
+                                        <Label fx:id="timeLabel" layoutX="8.0" layoutY="176.0" styleClass="label-time" text="00:00" textAlignment="CENTER" AnchorPane.leftAnchor="8.0">
+                                            <font>
+                                                <Font size="10.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="timeLabelEnd" layoutX="249.0" layoutY="176.0" styleClass="label-time" textAlignment="CENTER" AnchorPane.rightAnchor="8.0">
+                                            <font>
+                                                <Font size="10.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER" layoutX="46.0" layoutY="215.0" prefHeight="25.0" prefWidth="154.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#handlePrevButton" styleClass="button-prev">
+                                                    <graphic>
+                                                        <FontAwesomeIconView fill="WHITE" glyphName="STEP_BACKWARD" size="22.0" textAlignment="CENTER" />
+                                                    </graphic>
+                                                </Button>
+                                                <Button fx:id="playButton" alignment="CENTER" mnemonicParsing="false" onAction="#handlePlayButton" prefHeight="34.0" prefWidth="38.0" styleClass="button-play" textAlignment="CENTER">
+                                                    <font>
+                                                        <Font size="1.0" />
+                                                    </font>
+                                                    <graphic>
+                                                        <FontAwesomeIconView fx:id="playButtonIcon" fill="WHITE" glyphName="PLAY" size="20.0" smooth="false" strokeMiterLimit="0.0" strokeWidth="0.0" styleClass="icon-play" textAlignment="CENTER">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></FontAwesomeIconView>
+                                                    </graphic>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#handleNextButton" styleClass="button-next">
+                                                    <graphic>
+                                                        <FontAwesomeIconView fill="WHITE" glyphName="STEP_FORWARD" size="22" styleClass="button-next">
+                                                            <font>
+                                                                <Font size="64.0" />
+                                                            </font></FontAwesomeIconView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </HBox>
+                                        <Button layoutX="228.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleRepeat" styleClass="button-repeat" AnchorPane.rightAnchor="28.0">
+                                            <graphic>
+                                                <FontAwesomeIconView fx:id="fontRepeat" fill="WHITE" glyphName="REPEAT" styleClass="glyph-icon-repeat" />
+                                            </graphic>
+                                        </Button>
+                                        <Button layoutX="25.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleRandom" styleClass="button-repeat" AnchorPane.leftAnchor="28.0">
+                                            <graphic>
+                                                <FontAwesomeIconView fx:id="fontRandom" fill="WHITE" glyphName="RANDOM" styleClass="glyph-icon-repeat" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <AnchorPane fx:id="playlistPane" opacity="0.87" prefHeight="200.0" prefWidth="200.0" styleClass="background" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label fx:id="allS" alignment="TOP_CENTER" layoutY="60.0" prefHeight="21.0" prefWidth="334.0" text="All Songs" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="60.0" />
+                                <SplitPane dividerPositions="0.5" layoutY="99.0" prefHeight="259.0" prefWidth="672.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="99.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                            <children>
+                                                <TableView fx:id="songs" layoutX="36.0" layoutY="46.0" opacity="0.81" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="artistCol1" prefWidth="157.0" text="Artist" />
+                                                        <TableColumn fx:id="titleCol1" minWidth="0.0" prefWidth="172.0" text="Title" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                            <children>
+                                                <TableView fx:id="playlistView" layoutX="44.0" layoutY="52.0" opacity="0.81" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="artistCol2" prefWidth="159.0" text="Artist" />
+                                                        <TableColumn fx:id="titleCol2" prefWidth="170.0" text="Title" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </items>
+                                </SplitPane>
+                                <Label alignment="TOP_CENTER" layoutX="338.0" layoutY="60.0" prefHeight="21.0" prefWidth="334.0" text="New Playlist" textAlignment="CENTER" AnchorPane.leftAnchor="338.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
+                                <Button fx:id="create" alignment="TOP_CENTER" layoutX="457.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleCreatePl" prefHeight="41.0" prefWidth="96.0" styleClass="button-toolbar" text=" Create" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="457.0" AnchorPane.rightAnchor="119.0">
+                                    <graphic>
+                                        <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="14.0" />
+                                    </graphic>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Button>
+                                <Label layoutX="240.0" layoutY="23.0" text="Name: " AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="384.0" AnchorPane.topAnchor="23.0" />
+                                <TextField fx:id="textField" layoutX="304.0" layoutY="24.0" minHeight="18.0" prefHeight="0.0" prefWidth="206.0" styleClass="my-text-field" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="162.0" AnchorPane.topAnchor="24.0">
+                                    <font>
+                                        <Font size="8.0" />
+                                    </font>
+                                </TextField>
+                        <Button alignment="TOP_CENTER" layoutX="110.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleLoadFromDisk" prefHeight="41.0" prefWidth="115.0" styleClass="button-toolbar" text="Load From Disk" />
+                            </children>
+                        </AnchorPane>
+                        <TableView fx:id="tableView" opacity="0.87" prefHeight="200.0" prefWidth="200.0" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn fx:id="artistColumn" prefWidth="333.0" text="Artist" />
+                                <TableColumn fx:id="titleColumn" prefWidth="334.0" text="Title" />
+                            </columns>
+                        </TableView>
+                        <AnchorPane fx:id="lastPane" layoutX="7.0" layoutY="14.0" opacity="0.87" prefHeight="200.0" prefWidth="200.0" styleClass="background" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <TableView fx:id="View" layoutY="7.0" prefHeight="495.0" prefWidth="672.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="artistCol3" prefWidth="337.0" text="Artist" />
+                                        <TableColumn fx:id="titleCol3" prefWidth="330.0" text="Title" />
+                                    </columns>
+                                </TableView>
+                        <Button layoutX="275.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleSaveToDisk" prefHeight="33.0" prefWidth="134.0" styleClass="button-toolbar" text="Save to Disk" />
+                            </children>
+                        </AnchorPane>
+                    </children></AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

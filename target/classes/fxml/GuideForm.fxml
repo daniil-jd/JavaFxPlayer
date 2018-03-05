@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="364.0" prefWidth="562.0" styleClass="background" stylesheets="@../css/Trackio.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.controllers.PlayerControllerNext">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="202.0" layoutY="25.0" prefHeight="21.0" prefWidth="158.0" styleClass="label-bright" text="Hello, user!" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="25.0" />
+      <TextArea editable="false" layoutX="13.0" layoutY="81.0" prefHeight="202.0" prefWidth="536.0" />
+   </children>
+</AnchorPane>

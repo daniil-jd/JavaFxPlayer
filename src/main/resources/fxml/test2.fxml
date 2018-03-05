@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="102.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.controllers.TestController">
+   <children>
+      <Button layoutX="131.0" layoutY="14.0" mnemonicParsing="false" onAction="#playPressed" text="Button" />
+      <Slider fx:id="timeSlider" layoutX="19.0" layoutY="51.0" prefHeight="14.0" prefWidth="276.0" />
+   </children>
+</AnchorPane>

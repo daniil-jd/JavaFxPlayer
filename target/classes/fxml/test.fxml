@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane cache="true" cacheHint="SCALE" prefHeight="174.0" prefWidth="472.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.controllers.MyPlayerController">
+   <children>
+      <HBox layoutY="68.0" prefHeight="29.0" prefWidth="344.0" spacing="90.0" AnchorPane.bottomAnchor="73.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+         <children>
+            <JFXButton onAction="#backward">
+               <graphic>
+                  <FontAwesomeIconView glyphName="FAST_BACKWARD" />
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#playTrack">
+               <graphic>
+                  <FontAwesomeIconView glyphName="PLAY" />
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#forward">
+               <graphic>
+                  <FontAwesomeIconView glyphName="FAST_FORWARD" />
+               </graphic>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </HBox>
+      <Label alignment="CENTER" layoutX="13.0" layoutY="35.0" prefHeight="17.0" prefWidth="318.0" text="Now Playing..." AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="35.0" />
+      <Label fx:id="timeLabel" layoutX="48.0" layoutY="27.0" text="Label" />
+      <ProgressBar fx:id="progressBar" layoutX="37.0" layoutY="141.0" minHeight="10.0" prefHeight="10.0" prefWidth="370.0" progress="0.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="27.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ProgressBar>
+      <Slider fx:id="slider" layoutX="27.0" layoutY="113.0" minWidth="400.0" prefHeight="14.0" prefWidth="418.0" />
+   </children>
+</AnchorPane>
